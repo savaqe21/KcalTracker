@@ -19,9 +19,10 @@ export default function DaySelector({ days, selectedIndex, onChange }: DaySelect
 
       <div className="grid grid-cols-7 gap-2">
         {days.map((day, index) => {
-          const isDeficit = day.bilans <= 0
+          const isDeficit = day.bilans < 0
+          const isNeutral = day.bilans === 0
           const isSelected = index === selectedIndex
-          const accentColor = isDeficit ? '#10b981' : '#f43f5e'
+          const accentColor = isNeutral ? '#6366f1' : isDeficit ? '#10b981' : '#f43f5e'
           const pct = Math.min(100, Math.abs((day.bilans / day.limit_bazowy) * 100))
 
           return (
@@ -62,7 +63,7 @@ export default function DaySelector({ days, selectedIndex, onChange }: DaySelect
                   className="absolute inset-0 flex items-center justify-center text-[8px] font-bold"
                   style={{ color: accentColor }}
                 >
-                  {isDeficit ? '−' : '+'}
+                  {isNeutral ? '=' : isDeficit ? '−' : '+'}
                 </span>
               </div>
 
@@ -80,7 +81,7 @@ export default function DaySelector({ days, selectedIndex, onChange }: DaySelect
                   backgroundColor: `${accentColor}18`,
                 }}
               >
-                {isDeficit ? day.bilans : `+${day.bilans}`}
+                {isNeutral ? '0' : isDeficit ? day.bilans : `+${day.bilans}`}
               </div>
 
               {isSelected && (

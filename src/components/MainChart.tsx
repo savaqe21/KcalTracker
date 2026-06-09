@@ -36,6 +36,12 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   const spozyte = payload.find((p) => p.name === 'Spożyte')?.value ?? 0
   const limit = payload.find((p) => p.name === 'Limit')?.value ?? 0
   const diff = spozyte - limit
+  const diffColor = diff > 0 ? '#f43f5e' : diff < 0 ? '#10b981' : '#6366f1'
+  const diffLabel = diff > 0
+    ? `+${diff.toLocaleString('pl-PL')} nadwyżka`
+    : diff < 0
+    ? `${diff.toLocaleString('pl-PL')} deficyt`
+    : 'Idealny bilans — zero na zero!'
 
   return (
     <div className="bg-[#1a1a1d] border border-[#232326] rounded-xl px-4 py-3 shadow-2xl">
@@ -47,8 +53,8 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
           <span className="font-semibold text-zinc-100">{item.value.toLocaleString('pl-PL')} kcal</span>
         </div>
       ))}
-      <div className={`mt-2 pt-2 border-t border-[#232326] text-xs font-medium ${diff > 0 ? 'text-[#f43f5e]' : 'text-[#10b981]'}`}>
-        {diff > 0 ? `+${diff.toLocaleString('pl-PL')} nadwyżka` : `${Math.abs(diff).toLocaleString('pl-PL')} deficyt`}
+      <div className="mt-2 pt-2 border-t border-[#232326] text-xs font-medium" style={{ color: diffColor }}>
+        {diffLabel}
       </div>
     </div>
   )

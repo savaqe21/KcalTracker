@@ -102,5 +102,25 @@
       "wypracowany_deficyt_kcal": 2504,
       "szacowany_spalony_tluszcz_kg": 0.36
     }
+  },
+  {
+    "tydzien_numer": 2,
+    "zakres_dat": "2026-06-09 do 2026-06-15",
+    "dni": [
+      {
+        "dzien_numer": 1,
+        "data": "2026-06-09",
+        "dzien_tygodnia": "Wtorek",
+        "kalorie_spozyte": 1978,
+        "limit_bazowy": 2000,
+        "bilans": -22,
+        "makroskladniki": {
+          "bialko_g": 84.0,
+          "weglowodany_g": 174.0,
+          "tluszcze_g": 102.0
+        }
+      }
+    ],
+    "podsumowanie_tygodnia": null
   }
 ]
