@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Flame, TrendingDown, Scale, Activity } from 'lucide-react'
-import type { DietData, Tydzien } from './types/diet'
+import type { DietData, Tydzien, PodsumowanieTygodnia } from './types/diet'
 import WeekSelector from './components/WeekSelector'
 import KPICard from './components/KPICard'
 import MainChart from './components/MainChart'
@@ -92,7 +92,19 @@ export default function App() {
 
   const currentWeek = data[selectedWeekIndex]
   const currentDay = currentWeek.dni[selectedDayIndex]
-  const summary = currentWeek.podsumowanie_tygodnia
+
+  const summary: PodsumowanieTygodnia = currentWeek.podsumowanie_tygodnia ?? (() => {
+    const lacznie_spozyte_kcal = currentWeek.dni.reduce((s, d) => s + d.kalorie_spozyte, 0)
+    const laczny_limit_kcal = currentWeek.dni.reduce((s, d) => s + d.limit_bazowy, 0)
+    const deficyt = laczny_limit_kcal - lacznie_spozyte_kcal
+    return {
+      lacznie_spozyte_kcal,
+      laczny_limit_kcal,
+      laczne_zapytanie_zero_kcal: laczny_limit_kcal,
+      wypracowany_deficyt_kcal: deficyt,
+      szacowany_spalony_tluszcz_kg: Math.max(0, deficyt) / 7700,
+    }
+  })()
 
   const weeklyBalance = summary.lacznie_spozyte_kcal - summary.laczny_limit_kcal
   const isWeekDeficit = weeklyBalance < 0

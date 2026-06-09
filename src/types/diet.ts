@@ -26,7 +26,7 @@ export interface Tydzien {
   tydzien_numer: number
   zakres_dat: string
   dni: Dzien[]
-  podsumowanie_tygodnia: PodsumowanieTygodnia
+  podsumowanie_tygodnia: PodsumowanieTygodnia | null
 }
 
 export type DietData = Tydzien[]
