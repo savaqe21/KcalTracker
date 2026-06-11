@@ -119,6 +119,32 @@
           "weglowodany_g": 174.0,
           "tluszcze_g": 102.0
         }
+      },
+      {
+        "dzien_numer": 2,
+        "data": "2026-06-10",
+        "dzien_tygodnia": "Środa",
+        "kalorie_spozyte": 1777,
+        "limit_bazowy": 2000,
+        "bilans": -223,
+        "makroskladniki": {
+          "bialko_g": 70.0,
+          "weglowodany_g": 204.0,
+          "tluszcze_g": 74.5
+        }
+      },
+      {
+        "dzien_numer": 3,
+        "data": "2026-06-11",
+        "dzien_tygodnia": "Czwartek",
+        "kalorie_spozyte": 2021,
+        "limit_bazowy": 2000,
+        "bilans": 21,
+        "makroskladniki": {
+          "bialko_g": 77.0,
+          "weglowodany_g": 233.0,
+          "tluszcze_g": 86.0
+        }
       }
     ],
     "podsumowanie_tygodnia": null
