@@ -106,9 +106,10 @@ export default function App() {
     }
   })()
 
-  const weeklyBalance = summary.lacznie_spozyte_kcal - summary.laczny_limit_kcal
-  const isWeekDeficit = weeklyBalance < 0
-  const isWeekNeutral = weeklyBalance === 0
+  // Deficyt = zapotrzebowanie_zero - spożyte (dodatni = deficyt, ujemny = nadwyżka)
+  const realDeficit = summary.laczne_zapytanie_zero_kcal - summary.lacznie_spozyte_kcal
+  const isWeekDeficit = realDeficit > 0
+  const isWeekNeutral = realDeficit === 0
 
   const balanceLabel = isWeekNeutral
     ? 'Idealny bilans'
@@ -117,10 +118,10 @@ export default function App() {
     : 'Tygodniowa nadwyżka'
 
   const balanceDescription = isWeekNeutral
-    ? 'Dokładnie na limicie — zero na zero!'
+    ? 'Dokładnie na zapotrzebowaniu — zero na zero!'
     : isWeekDeficit
-    ? 'Jesteś na deficycie'
-    : 'Przekroczono limit tygodniowy'
+    ? 'Jesteś na deficycie kalorycznym'
+    : 'Przekroczono zapotrzebowanie zero'
 
   const balanceAccent = isWeekNeutral ? '#6366f1' : isWeekDeficit ? '#10b981' : '#f43f5e'
 
