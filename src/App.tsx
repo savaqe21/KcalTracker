@@ -133,7 +133,7 @@ export default function App() {
       icon: Flame,
       accentColor: '#f59e0b',
       bgColor: '#f59e0b18',
-      description: `Limit tygodniowy: ${summary.laczny_limit_kcal.toLocaleString('pl-PL')} kcal`,
+      description: `Zapotrzebowanie tygodniowe: ${summary.laczne_zapytanie_zero_kcal.toLocaleString('pl-PL')} kcal`,
     },
     {
       label: balanceLabel,
@@ -164,13 +164,29 @@ export default function App() {
         className="sticky top-0 z-50 bg-[#09090b]/80 backdrop-blur-md border-b border-[#232326]"
       >
         <div className="max-w-5xl mx-auto px-4 md:px-8 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div>
-            <h1 className="text-xl font-bold tracking-tight text-zinc-100">
-              Dashboard Kalorii
-            </h1>
-            <p className="text-xs text-zinc-500 mt-0.5">
-              Twój osobisty tracker diety
-            </p>
+          <div className="flex items-center gap-4">
+            <div>
+              <h1 className="text-xl font-bold tracking-tight text-zinc-100">
+                Dashboard Kalorii
+              </h1>
+              <p className="text-xs text-zinc-500 mt-0.5">
+                Twój osobisty tracker diety
+              </p>
+            </div>
+            <div className="hidden sm:flex items-center gap-2">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#f59e0b]/10 border border-[#f59e0b]/20">
+                <span className="text-[10px] text-zinc-500 uppercase tracking-wider">Dziennie</span>
+                <span className="text-xs font-semibold text-[#f59e0b]">
+                  {currentWeek.dni[0].limit_bazowy.toLocaleString('pl-PL')} kcal
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#6366f1]/10 border border-[#6366f1]/20">
+                <span className="text-[10px] text-zinc-500 uppercase tracking-wider">Tygodniowo</span>
+                <span className="text-xs font-semibold text-[#6366f1]">
+                  {summary.laczny_limit_kcal.toLocaleString('pl-PL')} kcal
+                </span>
+              </div>
+            </div>
           </div>
           <WeekSelector
             weeks={data}
