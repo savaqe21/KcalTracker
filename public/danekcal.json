@@ -366,8 +366,53 @@
           "weglowodany_g": 236.0,
           "tluszcze_g": 81.0
         }
+      },
+      {
+        "dzien_numer": 5,
+        "data": "2026-06-27",
+        "dzien_tygodnia": "Sobota",
+        "kalorie_spozyte": 1130,
+        "limit_bazowy": 2000,
+        "bilans": -870,
+        "makroskladniki": {
+          "bialko_g": 77.5,
+          "weglowodany_g": 94.0,
+          "tluszcze_g": 49.5
+        }
+      },
+      {
+        "dzien_numer": 6,
+        "data": "2026-06-28",
+        "dzien_tygodnia": "Niedziela",
+        "kalorie_spozyte": 1410,
+        "limit_bazowy": 2000,
+        "bilans": -590,
+        "makroskladniki": {
+          "bialko_g": 76.0,
+          "weglowodany_g": 98.0,
+          "tluszcze_g": 78.5
+        }
+      },
+      {
+        "dzien_numer": 7,
+        "data": "2026-06-29",
+        "dzien_tygodnia": "Poniedziałek",
+        "kalorie_spozyte": 1336,
+        "limit_bazowy": 2000,
+        "bilans": -664,
+        "makroskladniki": {
+          "bialko_g": 42.8,
+          "weglowodany_g": 171.0,
+          "tluszcze_g": 52.0
+        }
       }
     ],
-    "podsumowanie_tygodnia": null
+    "podsumowanie_tygodnia": {
+      "lacznie_spozyte_kcal": 11390,
+      "laczny_limit_kcal": 14000,
+      "laczne_zapytanie_zero_kcal": 18200,
+      "wypracowany_deficyt_kcal": 6810,
+      "szacowany_spalony_tluszcz_kg": 0.97
+    }
   }
 ]
